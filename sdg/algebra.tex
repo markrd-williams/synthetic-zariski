@@ -183,11 +183,33 @@ Lastly, we will make use of vector notation for variables, for example, we have 
 \end{definition}
 
 \begin{example}
-  \rednote{Assuming SAG duality, the affine line is a Fermat-Hadamard ring.}
+  Working within the axiom system of synthetic algebraic geometry \cite{draft}, the base ring \(R\) is a Fermat-Hadamard ring.
+  This is because the duality axiom implies that \(\EE_R(n) = R^n \to R = R[X_1, \ldots, X_n]\) for all \(n : \N\).
+  That is, every function is a polynomial.
+  Polynomial functions preserve ideal membership so existence of a Hadamard quotient follows immediately from \ref{prop:ideals-congruence-fermat-ring}.
+  The uniqueness follows from the fact that \(X_1 - X_2\) is a regular element in any polynomial ring.
 \end{example}
 
 \begin{example}
-  \rednote{Assuming Kock-Lawvere ... ?}
+  In the Dubuc topos \(\mathrm{Dub}\), the smooth reals \(R = \yo \ell C^\infty(\R)\) foorm a Fermat-Hadamard ring.
+  We use the Kripke-Joyal semantics to show that 
+  \[ \mathrm{Dub} \models \forall f : R^{n+1} \to R \; 
+                          \exists ! \; g : R^{n+2} \to R  \;
+                          \forall x, y , \bar{z}  : R \; \;
+                           f(x, \bar{z}) - f(y, \bar{z}) = (x-y)g(x,y,\bar{z})\]
+  Unwinding the Kripke-Joyal semantics, and applying the Yoneda lemma this statement is equivalent to the following:
+  For all germ determined \(C^\infty\)-rings \(C^\infty(\mathbb{R}^m)/I\), and for all \(f : C^{\infty}(\mathbb{R}^{m+n+1})/I\) there are smooth \(u_{\alpha}: \mathbb{R}^{m}\to \mathbb{R}\), summing to one, 
+  and \(g_{\alpha}: C^\infty(\mathbb{R}^{m+n+3})/(I, u_{\alpha}X_{m+1}-1)\) such that for all \(x,y,\bar z : C^\infty(\mathbb{R}^{m+1})/(I, u_{\alpha}X_{m+1}-1)\) we have 
+  \[f_\alpha(x, \bar{z}) - f_\alpha(y, \bar{z}) = (x-y)g_\alpha(x,y,\bar{z})\] 
+  where \(f_\alpha\) is \(f\) included in the quotient ring.
+
+We show this. Given an \(f : C^\infty(\mathbb{R}^{m+n+1})/I\), we choose the \(u_\alpha\) to be trivial.
+By Hadamard's lemma, for each \(a : \mathbb{R}^n\) there is a function \(g(a)\) such that for all \(x, y, \bar{z} : \mathbb{R}\) 
+\[f(a)(x, \bar{z}) - f(a)(y, \bar{z}) = (x-y)g(a)(x,y,\bar{z})\]
+This determines a function \(g : \mathbb{R}^{m+n+2} \to \mathbb{R}\), which satisfies the desired criteria when descending to the quotient.
+
+This is unique by regularity of \(X-Y\) as an element of \[C^\infty(\mathbb{R}^{m+n+2})/I = C^\infty(\mathbb{R}^m)/I \otimes C^\infty(\mathbb{R}^{n+2})\]
+If $g, g'$ both satisfy the condition, then $(X-Y)(g-g') = 0$, and so $g = g'$.
 \end{example}
 
 \begin{proposition}
