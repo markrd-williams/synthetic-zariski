@@ -156,8 +156,17 @@ Every congruence relation on \(A\) with respect to the \(\EE_R\)-algebra structu
 However, it may no longer be the case that every ideal gives rise to an \(\EE_R\)-congruence relation, as the following example shows.
 
 \begin{example}
-  \rednote{Missing.}
+  Let $R = \Z$ be the integers, and consider the ideal $(2)$.
+  Then this does not form a congruence since we have the operation 
+  \[ f : \Z \to \Z \]
+  \[ f(0) = 0 ; f(n) = 1 \]
+  Then $0 ~ 2$ but $f(0)$ and $f(1)$ are not related.
 \end{example}
+
+\begin{remark}
+  In fact this logic extends, given any ring $R$ with decidable equality, then ideals give congruences if and only if $R$ is a field.
+  Thus to get the examples of theories we are interested in we must be working intuitionistically, and with a non-decidable ring.
+\end{remark}
 
 We will show in proposition ?? that the correspondence between ideals and congruence relations for \(\EE_R\)-algebras can be restored by restricting to rings \(R\) which are \emph{Fermat-Hadamard rings} in the sense of \cref{def:hadamard-quotient} below.
 To make this definition more readable, let us introduce some notational conventions.
@@ -214,15 +223,15 @@ If $g, g'$ both satisfy the condition, then $(X-Y)(g-g') = 0$, and so $g = g'$.
 
 \begin{proposition}
   \label{prop:fermat-ring-quotients}
-  \rednote{Conjecture}
+  \rednote{To make this true, we just assume $X$ is regular. There might be a locality condition that lets us deduce this?}
   Let \(R\) be a ring.
   The following are equivalent:
 
   \begin{enumerate}
     \item
-      For every ideal \(I\) of every \(\EE_R\)-algebra \(A\), the equivalence relation \(\sim_I\) is a congruence relation.
-    \item
-      For every ideal \(I\) of every finitely generated free \(\EE_R\)-algebra, the equivalence relation \(\sim_I\) is a congruence relation.
+      For every ideal \(I\) of every \(\EE_R\)-algebra \(A\), the equivalence relation \(\sim_I\) is a congruence relation, and $X$ is regular in $F(1)$.
+      \item
+      For every ideal \(I\) of every finitely generated free \(\EE_R\)-algebra, the equivalence relation \(\sim_I\) is a congruence relation, and $X$ is regular in $F(1)$.
     \item
       The ring \(R\) is a Fermat-Hadamard ring.
   \end{enumerate}
@@ -238,11 +247,17 @@ If $g, g'$ both satisfy the condition, then $(X-Y)(g-g') = 0$, and so $g = g'$.
   \]
   and similarly for \(f(Y,\vec Z)\).
   Therefore, since \(\sim_I\) is a congruence by assumption, it suffices to show that \(X\sim_I Y\) and \(Z_1 \sim_I Z_1\), \dots, \(Z_n\sim_I Z_n\), which is clearly the case.
-  \rednote{For uniqueness of the Hadamard quotient, we need to show that \(X-Y\) is a regular element in \(F(n+2)\).
-    This holds for Fermat theories, see [Dubuc-Kock, paragraph before Prop. 1.1].
-    Maybe add locality condition?}
+  For uniqueness note, that since $X$ is not a zero divisor in $F(1)$, it follows by component-wise reasoning that $X$ is not a zero divisor in $F(n)$ for any $n$.
+  Note also there is an automorphism of $F(n+2)$ swapping $X$ and $X-Y$, thus we deduce that $X-Y$ is regular too.
+  Thus if we had Hadamard quotients $g, g'$ for a function $f : \EE_R(n+1)$, then $(X-Y)(g - g') = 0$ so that $g = g'$.
 
   \rednote{\(3\Rightarrow 1\) is in Dubuc-Kock}
+  Given that $R$ is a Fermat-Hadamard ring, we deduce that $X-Y$ is regular in $F(2)$. 
+  It follows $X$ is regular in $F(2)$ and hence in $F(1)$.
+  So suppose $(X-Y)g(X,Y) = 0$ for some $g : F(2)$.
+  Then note that for the function $f : F(1)$ given by $f(x) = 0$ we have
+  \[ (X-Y)g(X,Y) = f(X) - f(Y) = (X - Y)0 \]
+  Thus by uniqueness of the Hadamard quotient $g = 0$ and we are done.
 \end{proof}
 
 
