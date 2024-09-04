@@ -130,6 +130,16 @@ Namely, for \(f:\EE_X(n)\) and \(a_1,\dots,a_n:A\) we have to set
 \]
 which is well-defined as \(\sim\) is a congruence relation, is compatible with projections and composition, and determines \(\interpret{f}_{\quotient{A}{\sim}}\) uniquely.
 
+\paragraph{More General Free Algebras}
+The forgetful functor from algebras to the base universe has a left adjoint, giving the free algebra construction on any type.
+This can be explicitly constructed as a quotient of a set of terms.  \rednote{Expand this}
+
+Given that we now have free algebras and quotients, we can see that every \(\EE_X\)-algebra \(A\) can be specified by some generators and relations,
+simply by taking $F(A)/R$ where $sRt$ iff $s = t$ when interpereted into $A$ in the canonical way.
+
+\paragraph{Coproducts}
+In light of the previous remark, given two algebras $F(X)/R$ and $F(Y)/S$ we can calculate that their coproduct is
+$F(X \sqcup Y) / (R \sqcup S)$.
 
 \subsection{Ringed Endomorphism Theories}
 
@@ -260,11 +270,9 @@ If $g, g'$ both satisfy the condition, then $(X-Y)(g-g') = 0$, and so $g = g'$.
   Thus by uniqueness of the Hadamard quotient $g = 0$ and we are done.
 \end{proof}
 
-
-
-TODO:
-\begin{enumerate}
-  \item Localization?
-\end{enumerate}
-
+\begin{definition}
+  Given an \(\EE_R\)-Algebra \(A\) and \(f:A\), we can define the localisation of \(A\) at \(f\) as
+  \[ A_f := (A \otimes F(1)) / (fX - 1)\]
+  For clarity we write \(A \otimes F(n)\) as \(A\{X_1, \ldots, X_n\}\).
+\end{definition}
 }
